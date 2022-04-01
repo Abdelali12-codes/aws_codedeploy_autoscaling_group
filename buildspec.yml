@@ -1,0 +1,23 @@
+version: 0.2
+env:
+    variables:
+       AWS_DEFAULT_REGION: "eu-west-3"
+       AWS_ACCOUNT_ID: "080266302756"
+    parameter-store:
+       AWS_ECR_REPO: "/devops/AWS_ECR_REPO"
+
+phases:
+  pre_build:
+    commands:
+      - echo pre_build.....
+  build:
+    commands:
+      - echo Build started on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+    files: 
+      - index.html
+      - scripts/*
+      - appspec.yml

@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ec2-user/devops
+hooks:
+    AfterInstall:
+       - location: scripts/after-unzip.sh
+         timeout: 300
+         runas: ec2-user
+    ApplicationStart:
+       - location: scripts/start-app.sh
+         timeout: 300
+         runas: ec2-user
